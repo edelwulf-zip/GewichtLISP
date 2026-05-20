@@ -1,3 +1,6 @@
+;; Code Author: Daniel Nass
+;;
+
 (defun c:G ( / sset idx ename obj vol matChoice density unitChoice weight pt txtObj textStr suffix cDoc space matName)
   (vl-load-com)
   
