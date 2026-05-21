@@ -19,6 +19,8 @@
     ((= matChoice "1045")     (setq density 7.85  matName "1045 Steel"))
     ((= matChoice "6061")     (setq density 2.70  matName "6061 Alum"))
     ((= matChoice "C26000")   (setq density 8.53  matName "C26000 Brass"))
+    ((= matChoice "PVC MARROM KRONA")   (setq density 1.37  matName "PVC Marrom Krona"))
+    ((= matChoice "PVC BRANCO")   (setq density 1.5  matName "PVC Branco"))
     ((= matChoice "Custom")
      (setq density (getreal "\nEnter custom material density in g/cm³: "))
      (setq matName "Custom"))
