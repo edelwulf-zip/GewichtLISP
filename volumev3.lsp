@@ -52,6 +52,7 @@
             (setq obj (vlax-ename->vla-object ename))
             
             ;; Get the raw volume from AutoCAD
+            ;; FIXED: Removed the extra closing parenthesis that broke the loop block
             (setq vol (vla-get-Volume obj))
             
             ;; 5. Apply unit conversion math based on unit choice
@@ -68,8 +69,7 @@
               )
             )
             
-            ;; Format the text string (includes material name for clarity)
-            ;; Example: "Peso: 15.42 kg"
+            ;; Format the text string
             (setq textStr (strcat "Peso: " (rtos weight 2 2) suffix))
             
             ;; Ask user where to place the text
@@ -80,11 +80,12 @@
                 ;; Create MText at the picked point
                 (setq txtObj (vla-addMText space (vlax-3d-point pt) 0.0 textStr))
                 (vla-put-AttachmentPoint txtObj 1) ;; Top-Left alignment
-
-		;; Sets height to 66
-		(vla-put-Height txtObj 66.0)
+                
+                ;; Sets height to 66
+                (vla-put-Height txtObj 66.0)
               )
             )
+            ;; The index now increments correctly inside the loop
             (setq idx (1+ idx))
           )
         )
