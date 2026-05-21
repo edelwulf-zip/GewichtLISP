@@ -57,7 +57,7 @@
             ;; 5. Apply unit conversion math based on unit choice
             (if (= unitChoice "Inches")
               (progn
-                ;; Volume (in³) * Density (g/cm³) * Conversion Factor -> lbs
+                ;; Volume (in³) * Density (g/cm³) * Conversion Factor -> kg
                 (setq weight (* vol density 0.016387))
                 (setq suffix " kg")
               )
@@ -69,8 +69,8 @@
             )
             
             ;; Format the text string (includes material name for clarity)
-            ;; Example: "Peso: 15.420 kg"
-            (setq textStr (strcat "Peso: " (rtos weight 2 2 2) suffix))
+            ;; Example: "Peso: 15.42 kg"
+            (setq textStr (strcat "Peso: " (rtos weight 2 2) suffix))
             
             ;; Ask user where to place the text
             (setq pt (getpoint (strcat "\nPick insertion point for " matName " weight text: ")))
