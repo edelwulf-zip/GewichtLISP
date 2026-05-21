@@ -69,17 +69,11 @@
             )
             
             ;; Format the text string (includes material name for clarity)
-            ;; Example: "Weight (AISI 304): 15.42 kg"
-            (setq textStr (strcat "Weight (" matName "): " (rtos weight 2 2) suffix))
-            
-            ;; Highlight the current solid
-            (redraw ename 3)
+            ;; Example: "Peso: 15.420 kg"
+            (setq textStr (strcat "Peso: " (rtos weight 2 2 2) suffix))
             
             ;; Ask user where to place the text
             (setq pt (getpoint (strcat "\nPick insertion point for " matName " weight text: ")))
-            
-            ;; Unhighlight the solid
-            (redraw ename 4)
             
             (if pt
               (progn
