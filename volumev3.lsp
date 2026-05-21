@@ -6,7 +6,7 @@
   
   ;; 1. Prompt user for material code selection
   (initget "AISI304 AISI316 ASTMA36 6061 1045 C26000 PVCMARROMKRN PVCBRANCO Custom")
-  (setq matChoice (getkword "\nChoose Material [AISI304/AISI316/ASTMA36/6061/1045/C26000/PVC MARROM KRONA/ PVC BRANCO/Custom] <Custom>: "))
+  (setq matChoice (getkword "\nChoose Material [AISI304/AISI316/ASTMA36/6061/1045/C26000/PVCMARROMKRN/PVCBRANCO/Custom] <Custom>: "))
   
   ;; Default to Custom if user just presses Enter
   (if (not matChoice) (setq matChoice "Custom"))
