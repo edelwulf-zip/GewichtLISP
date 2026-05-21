@@ -5,8 +5,8 @@
   (vl-load-com)
   
   ;; 1. Prompt user for material code selection
-  (initget "AISI304 AISI316 ASTMA36 6061 1045 C26000 Custom")
-  (setq matChoice (getkword "\nChoose Material [AISI304/AISI316/ASTMA36/6061/1045/C26000/Custom] <Custom>: "))
+  (initget "AISI304 AISI316 ASTMA36 6061 1045 C26000 PVCMARROMKRN PVCBRANCO Custom")
+  (setq matChoice (getkword "\nChoose Material [AISI304/AISI316/ASTMA36/6061/1045/C26000/PVC MARROM KRONA/ PVC BRANCO/Custom] <Custom>: "))
   
   ;; Default to Custom if user just presses Enter
   (if (not matChoice) (setq matChoice "Custom"))
@@ -19,8 +19,8 @@
     ((= matChoice "1045")     (setq density 7.85  matName "1045 Steel"))
     ((= matChoice "6061")     (setq density 2.70  matName "6061 Alum"))
     ((= matChoice "C26000")   (setq density 8.53  matName "C26000 Brass"))
-    ((= matChoice "PVC MARROM KRONA")   (setq density 1.37  matName "PVC Marrom Krona"))
-    ((= matChoice "PVC BRANCO")   (setq density 1.5  matName "PVC Branco"))
+    ((= matChoice "PVCMARROMKRN")   (setq density 1.37  matName "PVC Marrom Krona"))
+    ((= matChoice "PVCBRANCO")   (setq density 1.5  matName "PVC Branco"))
     ((= matChoice "Custom")
      (setq density (getreal "\nEnter custom material density in g/cm³: "))
      (setq matName "Custom"))
@@ -58,8 +58,8 @@
             (if (= unitChoice "Inches")
               (progn
                 ;; Volume (in³) * Density (g/cm³) * Conversion Factor -> lbs
-                (setq weight (* vol density 0.0361273))
-                (setq suffix " lbs")
+                (setq weight (* vol density 0.016387))
+                (setq suffix " kg")
               )
               (progn
                 ;; Vol (mm³) * Density (g/cm³) / 1,000,000 -> kg
