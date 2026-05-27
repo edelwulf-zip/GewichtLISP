@@ -1,2 +1,2 @@
 # GewichtLISP
-Ein LISP, das Gewicht von 3D Objekten rechnet
+Ein LISP, dass Gewicht von 3D-Objekten rechnet
